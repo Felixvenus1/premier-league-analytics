@@ -1,0 +1,11 @@
+[project]
+name = "premier-league-analytics"
+version = "0.1.0"
+description = "Multi-season Premier League performance analytics with player similarity scoring"
+requires-python = ">=3.11"
+
+[tool.ruff]
+line-length = 88
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
