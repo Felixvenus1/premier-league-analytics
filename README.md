@@ -16,20 +16,31 @@ Three staged notebooks:
 
 ```bash
 pip install -r requirements.txt
-python data/fetch_data.py   # downloads match + player CSVs from football-data.co.uk
+python data/fetch_data.py   # downloads two seasons of match CSVs (no auth)
 jupyter lab
 ```
 
+The committed notebooks are already executed against real data, so all charts
+render on GitHub.
+
 ## Data Source
 
-[football-data.co.uk](https://www.football-data.co.uk/englandm.php) — free match statistics CSVs, no authentication required. Two seasons fetched:
+[football-data.co.uk](https://www.football-data.co.uk/englandm.php) — free match
+statistics CSVs, no authentication required. Two seasons (760 matches) are fetched:
 
 - `data/E0_2223.csv` — Premier League 2022-23
 - `data/E0_2324.csv` — Premier League 2023-24
 
-Player-level stats are sourced from [FBref](https://fbref.com) via the `soccerdata` library.
+Team-level season tables are aggregated from these match results. The player
+analysis uses an embedded **representative per-90 sample** of leading 2023-24
+players (so the radar/similarity demo is fully reproducible without scraping);
+swap in a `soccerdata`/FBref pull for the full squad if desired. Raw CSVs are git-ignored.
 
-Raw CSVs are git-ignored.
+## Selected Figures
+
+![Correlation heatmap](outputs/figures/correlation_heatmap.png)
+
+![Player radar](outputs/figures/player_radar.png)
 
 ## Player Similarity
 
